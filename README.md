@@ -33,6 +33,13 @@ lines
 ```
 
 
+var problem = "split this string into words and print them on separate lines"
+var problemSplit = problem.components(separatedBy: " ")
+
+for i in problemSplit {
+print(i)
+}
+
 ## Question 2
 
 Given a string `testString` create a new variable called `condensedString` that has any consecutive spaces in `testString` replaced with a single space.
@@ -41,6 +48,18 @@ Given a string `testString` create a new variable called `condensedString` that 
 let testString = "  How   about      thesespaces  ?  "
 //condensedString = " How about thesespaces ? "
 ```
+
+let testString = "  How   about      thesespaces  ?  "
+var newString = ""
+
+let stringComponents = testString.components(separatedBy: .whitespacesAndNewlines)
+
+for i in stringComponents {
+if i.count != 0 {
+newString += (i + " ")
+}
+}
+print(newString)
 
 
 ## Question 3
@@ -54,6 +73,15 @@ Sample Input: `"Swift is the best language"`
 Sample Output: `"language best the is Swift"`
 
 
+var input = "Swift is the best language"
+
+var inputComponents = input.components(separatedBy: " ")
+var reversedInputComponents = inputComponents.reversed()
+
+for i in reversedInputComponents {
+print(i, terminator: " ")
+}
+
 ## Question 4
 
 Given a string with multiple words. Write code that prints how many of them are palindromes.
@@ -63,6 +91,17 @@ Example:
 Sample Input: `"danaerys dad cat civic bottle"`
 
 Sample Output: `2`
+
+var input = "danaerys dad cat civic bottle"
+var inputComponents = input.components(separatedBy: " ")
+var palindromes = 0
+
+for i in inputComponents {
+if i == String(i.reversed()) {
+palindromes += 1
+}
+}
+print(palindromes)
 
 
 ## Question 5
@@ -83,6 +122,16 @@ Sample Input: `"PPALLP"`
 
 Sample Output: `true`
 
+var input = "PPALLP"
+var fail = input.contains("AA") || input.contains("LLL")
+
+switch fail {
+case true:
+print("false")
+default:
+print("true")
+}
+
 
 ## Question 6
 
@@ -99,3 +148,13 @@ Sample Output1: `False`
 Sample Input2: `("aa", "aab")`
 
 Sample Output2: `True`
+
+var input = ("aa", "aab")
+var oneContainsZero = input.1.contains(input.0)
+
+switch oneContainsZero {
+case true:
+print("true")
+default:
+print("false")
+}
